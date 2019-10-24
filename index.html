@@ -1,0 +1,47 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Shacl GUI</title>
+
+<link type="text/css" rel="stylesheet" href="css/UDStyle.css" />
+<meta name="viewport"
+	content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+
+<script type="text/javascript" src="UDCore.js"></script>
+<script type="text/javascript" src="UDModules.js"></script>
+<script type="text/javascript" src="UDApplication.js"></script>
+<script type="text/javascript">
+	window.onload = function() {
+		var width = screen.availWidth - 250;
+		var height = screen.availHeight;
+
+		if (width < 400)
+			width = width + 250;
+		if (width > 1000)
+			width = 1000;
+
+		var app = new Application({
+			id : 'umldiagram',
+			width : width,
+			height : height
+		});
+	}
+</script>
+
+</head>
+
+<body>
+	<font color="black" face="Helvetica, Verdana, Arial" size="2"><i><b>
+				This is the SHACL Graphical User Inteface, based on the <a
+				href="http://code.google.com/p/jsuml2" target="_blank">jsUML2</a>
+				library. </i>. </font>
+	<br>
+
+	<div id="umldiagram"></div>
+
+
+
+
+	<div id="debug"></div>
+</body>
+</html>
