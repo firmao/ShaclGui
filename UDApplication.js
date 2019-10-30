@@ -273,7 +273,12 @@ Application.prototype._generateGeneralMenu = function() {
         }
     };
     this._addMenuItem(this._tools_ul1, "Export/Import to Shacl xml", function(m) {
-        var p = this;
+       
+    	var txtXml = document.getElementById("txtXML");
+    	txtXml.value = m.getXMLString();
+        txtXml.select()
+    	
+    	var p = this;
         this._active = true;
         var h = document.createElement("div");
         var j = document.createElement("form");
@@ -298,8 +303,8 @@ Application.prototype._generateGeneralMenu = function() {
             document.body.removeChild(h)
         };
         var r = function(v) {
-            k.value = m.getXMLString();
-            k.select()
+        	k.value = m.getXMLString();
+        	k.select()
         };
         var l = function(v) {
             k.value = m.getCurrentXMLString();
@@ -703,8 +708,8 @@ Application.prototype._addMenuItem = function(a, g, f, k, b) {
     }
 };
 Application.prototype.getXML = function() {
-    var b = (new DOMParser()).parseFromString("<umldiagrams/>", "text/xml");
-    var d = b.getElementsByTagName("umldiagrams")[0];
+    var b = (new DOMParser()).parseFromString("<shacldiagrams/>", "text/xml");
+    var d = b.getElementsByTagName("shacldiagrams")[0];
     var a;
     var c;
     for (c in this._diagrams) {
@@ -889,6 +894,12 @@ _specificMenu.UMLClassDiagram = [
             stereotypes: _stereotypes
         });
         b.addElement(c)
+        
+        var txtXml = document.getElementById("txtXML");
+    	//txtXml.value = m.getXMLString();
+    	txtXml.value = "getXMLString() should be here !!!";
+        txtXml.select()
+        
     }, 1, "UMLClass"],
     ["Component", function(b, a, d) {
         var c = new UMLComponent({
